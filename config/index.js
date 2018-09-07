@@ -19,7 +19,8 @@ module.exports = {
         // target : "http://192.168.0.231:80/store/",//门店端
         // target : "http://127.0.0.1/store/",//门店端
         //  target : "https://www.speedech.com/store/",//门店端
-        target : "http://192.168.0.108/store/",
+        //target : "http://192.168.0.108/store/",
+        target: "",
         changeOrigin: true,
         pathRewrite: {
           '^/XD_APi': ''

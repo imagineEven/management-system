@@ -1,4 +1,4 @@
-import { asyncRouterMap, constantRouterMap } from '@/router'
+import { asyncRouterMap, constantRouterMap } from '@/router';
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
@@ -7,9 +7,9 @@ import { asyncRouterMap, constantRouterMap } from '@/router'
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.indexOf(role) >= 0)
+    return roles.some(role => route.meta.roles.indexOf(role) >= 0);
   } else {
-    return true
+    return true;
   }
 }
 
@@ -22,13 +22,13 @@ function filterAsyncRouter(asyncRouterMap, roles) {
   const accessedRouters = asyncRouterMap.filter(route => {
     if (hasPermission(roles, route)) {
       if (route.children && route.children.length) {
-        route.children = filterAsyncRouter(route.children, roles)
+        route.children = filterAsyncRouter(route.children, roles);
       }
-      return true
+      return true;
     }
-    return false
-  })
-  return accessedRouters
+    return false;
+  });
+  return accessedRouters;
 }
 
 const permission = {
@@ -38,26 +38,26 @@ const permission = {
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
-      state.addRouters = routers
-      state.routers = constantRouterMap.concat(routers)
+      state.addRouters = routers;
+      state.routers = constantRouterMap.concat(routers);
     }
   },
   actions: {
     GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
-        const { roles } = data
-        let accessedRouters
+        const { roles } = data;
+        let accessedRouters;
         if (roles.indexOf('admin') >= 0) {
-          accessedRouters = asyncRouterMap
+          accessedRouters = asyncRouterMap;
         } else {
-          accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+          accessedRouters = filterAsyncRouter(asyncRouterMap, roles);
         }
-        console.log(accessedRouters)
-        commit('SET_ROUTERS', accessedRouters)
-        resolve()
-      })
+        console.log(accessedRouters);
+        commit('SET_ROUTERS', accessedRouters);
+        resolve();
+      });
     }
   }
-}
+};
 
-export default permission
+export default permission;
