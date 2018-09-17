@@ -52,58 +52,61 @@ export default new Router({
   routes: constantRouterMap
 });
 
-export const asyncRouterMap = [
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
+export const asyncRouterMap = [{
+  path: '/example',
+  component: Layout,
+  redirect: '/example/table',
+  name: 'Example',
+  meta: {
+    title: '例子',
+    icon: 'example'
+  },
+  children: [{
+    path: 'table',
+    name: 'Table',
+    component: () =>
+                    import ('@/views/table/index'),
     meta: {
-      title: '例子',
-      icon: 'example'
-    },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: {
-          title: '表格',
-          icon: 'table'
-        }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: {
-          title: '树结构',
-          icon: 'tree',
-          roles: ['admin']
-        }
-      }
-    ]
+      title: '表格',
+      icon: 'table'
+    }
   },
-
   {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: {
-          title: '表单',
-          icon: 'form'
-        }
-      }
-    ]
-  },
-
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
+    path: 'tree',
+    name: 'Tree',
+    component: () =>
+                    import ('@/views/tree/index'),
+    meta: {
+      title: '树结构',
+      icon: 'tree',
+      roles: ['admin']
+    }
   }
+<<<<<<< HEAD
 ];
+=======
+  ]
+},
+
+{
+  path: '/form',
+  component: Layout,
+  children: [{
+    path: 'index',
+    name: 'Form',
+    component: () =>
+                import ('@/views/form/index'),
+    meta: {
+      title: '表单',
+      icon: 'form'
+    }
+  }]
+},
+
+{
+  path: '*',
+  redirect: '/404',
+  hidden: true
+}
+];
+>>>>>>> 95106ad626e0a763cb830c5fc5df735eb69d084e
