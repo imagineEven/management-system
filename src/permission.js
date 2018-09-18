@@ -8,7 +8,7 @@ import { getSessionId } from '@/utils/auth'; // 获取sessionId
 NProgress.configure({ showSpinner: false }); // 进度条初始化
 
 const whiteList = ['/login'];// 无需登录就可以访问的页面白名单
-
+//const whiteList = ['/login', '/dashboard', '/example', '/form'];
 router.beforeEach((to, from, next) => {
   NProgress.start(); // 进度条开始拉动
   if (getSessionId()) { // 检查是否有sessionId
@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
       next();
     } else {
-      next('/'); // 否则全部重定向到登录页
+      next('/login'); // 否则全部重定向到登录页
       NProgress.done(); // 如果当前页面是dashboard将不会触发afterEach事件  所以手动处理。
     }
   }

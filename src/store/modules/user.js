@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/login'
 /* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
-import { getSessionId, setSessionId, removeSessionId } from '@/utils/auth'
+import { getSessionId, setSessionId, removeSessionId, setLocalStorage } from '@/utils/auth'
 const user = {
   state: {
     /* token: getToken(), */
@@ -32,10 +32,12 @@ const user = {
     // 登录
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
+      setLocalStorage(username, userInfo.password)
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
           setSessionId(data.sessionId)
+          console.log(data)
           commit('SET_SESSIONID', data.sessionId)
           resolve()
         }).catch(error => {

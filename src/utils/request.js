@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Message, MessageBox } from 'element-ui';
 import store from '../store';
+import { getLocalStorage } from './auth.js'
 /* import { getToken } from '@/utils/auth' 001START*/
 
 // 创建axios实例
@@ -9,10 +10,13 @@ const service = axios.create({
   timeout: 15000, // 请求超时时间
   withCredentials: true,
   transformRequest: function(data) {
+    console.log(data)
     let ret = '';
-    for (const it in data) {
-      ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
-    }
+    // for (const it in data) {
+    //   ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+    // }
+    // console.log(ret)
+    ret = data.Data;
     return ret;
   }
 });
@@ -22,7 +26,9 @@ service.interceptors.request.use(config => {
   /* if (store.getters.token) {
     config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改 001END
   } */
-  config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+  const token = getLocalStorage('token');
+  config.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  config.headers['Authorization'] = token && `Bearer ${token}`;
   return config;
 }, error => {
   console.log(error); // 打印错误
@@ -35,8 +41,9 @@ service.interceptors.response.use(
   /**
   * code为非20000是抛错 可结合自己业务进行修改
   */
+    console.log(response)
     const res = response.data;
-    if (res.code !== 20000) {
+    if (res.code === 20000) {
       Message({
         message: res.message,
         type: 'error',

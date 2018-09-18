@@ -82,9 +82,6 @@ export const asyncRouterMap = [{
       roles: ['admin']
     }
   }
-<<<<<<< HEAD
-];
-=======
   ]
 },
 
@@ -109,4 +106,3 @@ export const asyncRouterMap = [{
   hidden: true
 }
 ];
->>>>>>> 95106ad626e0a763cb830c5fc5df735eb69d084e

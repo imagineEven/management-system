@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
-      <h3 class="title">服装小程序门店管理系统</h3>
+      <h3 class="title">想象力后台管理系统</h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -43,16 +43,16 @@ export default {
       }
     }
     const validatePass = (rule, value, callback) => {
-      if (value.length < 5) {
-        callback(new Error('密码不能小于5位'))
-      } else {
+      // if (value.length < 5) {
+      //   callback(new Error('密码不能小于5位'))
+      // } else {
         callback()
-      }
+      // }
     }
     return {
       loginForm: {
-        username: 'yanzhanghai',
-        password: '11111111'
+        username: 'funfair',
+        password: '1'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
