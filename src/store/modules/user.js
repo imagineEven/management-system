@@ -32,13 +32,14 @@ const user = {
     // 登录
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
-      setLocalStorage(username, userInfo.password)
+      //setLocalStorage(username, userInfo.password)
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
-          const data = response.data
-          setSessionId(data.sessionId)
-          console.log(data)
-          commit('SET_SESSIONID', data.sessionId)
+          console.log('response')
+          console.log(response)
+          console.log('response-end')
+          setLocalStorage('token', response.token)
+          //commit('SET_SESSIONID', data.sessionId)
           resolve()
         }).catch(error => {
           reject(error)

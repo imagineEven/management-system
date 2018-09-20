@@ -28,7 +28,7 @@ export function removeSessionId() {
 }
 
 export function getLocalStorage(name) {
-  return JSON.parse(localStorage.getItem(name));
+  return localStorage.getItem(name) ? JSON.parse(localStorage.getItem(name)) : '';
 }
 
 export function setLocalStorage(name, val) {
