@@ -11,7 +11,7 @@ const whiteList = ['/login'];// 无需登录就可以访问的页面白名单
 //const whiteList = ['/login', '/dashboard', '/example', '/form'];
 router.beforeEach((to, from, next) => {
   NProgress.start(); // 进度条开始拉动
-  console.log(getLocalStorage('token'));
+  //console.log(getLocalStorage('token'));
   if (getLocalStorage('token')) { // 检查是否有sessionId
     /* 有 sessionId*/
     if (to.path === '/login') {

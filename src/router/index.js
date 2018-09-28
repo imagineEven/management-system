@@ -61,27 +61,28 @@ export const asyncRouterMap = [{
     title: '例子',
     icon: 'example'
   },
-  children: [{
-    path: 'table',
-    name: 'Table',
-    component: () =>
-                    import ('@/views/table/index'),
-    meta: {
-      title: '表格',
-      icon: 'table'
+  children: [
+    {
+      path: 'table',
+      name: 'Table',
+      component: () =>
+                      import ('@/views/table/index'),
+      meta: {
+        title: '表格',
+        icon: 'table'
+      }
+    },
+    {
+      path: 'tree',
+      name: 'Tree',
+      component: () =>
+                      import ('@/views/tree/index'),
+      meta: {
+        title: '树结构',
+        icon: 'tree',
+        roles: ['admin']
+      }
     }
-  },
-  {
-    path: 'tree',
-    name: 'Tree',
-    component: () =>
-                    import ('@/views/tree/index'),
-    meta: {
-      title: '树结构',
-      icon: 'tree',
-      roles: ['admin']
-    }
-  }
   ]
 },
 

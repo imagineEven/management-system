@@ -42,6 +42,7 @@ export default {
     }
   },
   mounted() {
+    //console.log(document)
     console.log(1)
   }
 }

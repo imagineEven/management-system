@@ -5,9 +5,9 @@ const user = {
   state: {
     /* token: getToken(), */
     sessionId: getSessionId(),
-    name: '',
+    name: 'Even',
     avatar: '',
-    roles: []
+    roles: ['admin', 222, 333, 444]
   },
 
   mutations: {
