@@ -48,6 +48,7 @@ const permission = {
         const { roles } = data;
         let accessedRouters;
         if (roles.indexOf('admin') >= 0) {
+          console.log('是否执行的这里面')
           accessedRouters = asyncRouterMap;
         } else {
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles);

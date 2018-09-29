@@ -42,10 +42,10 @@ export default {
     }
   },
   mounted() {
-    //console.log(document)
-    console.log(1)
+
   }
 }
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
