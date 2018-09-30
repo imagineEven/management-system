@@ -1,10 +1,10 @@
 import { login, logout, getInfo } from '@/api/login'
 /* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
-import { getSessionId, setSessionId, removeSessionId, setLocalStorage } from '@/utils/auth'
+import { getSessionId, setSessionId, removeSessionId, setLocalStorage } from '@/utils/local'
 const user = {
   state: {
     /* token: getToken(), */
-    sessionId: getSessionId(),
+    //sessionId: getSessionId(),
     name: 'Even',
     avatar: '',
     roles: ['admin', 222, 333, 444]
@@ -38,7 +38,7 @@ const user = {
           console.log('response')
           console.log(response)
           console.log('response-end')
-          setLocalStorage('token', response.token)
+          //setLocalStorage('token', response.token)
           //commit('SET_SESSIONID', data.sessionId)
           resolve()
         }).catch(error => {

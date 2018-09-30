@@ -31,6 +31,8 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
+import axios from 'axios';
+import { setLocalStorage } from '@/utils/local.js'
 
 export default {
   name: 'login',
@@ -75,11 +77,19 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('Login', this.loginForm).then(() => {
+            //console.log('Yes - 登陆成功了吗？')
             this.loading = false
             this.$router.push({ path: '/' })
           }).catch(() => {
             this.loading = false
           })
+            // axios.get("/user/info?nihao").then(res=>{
+            //   console.log('mock 模拟的数据');
+            //   console.log(res);
+            // }).catch(res=>{
+            //   console.log("err")
+            // });
+          //axios.post('/api/user/signIn').then(res => {console.log(res)})
         } else {
           console.log('error submit!!')
           return false

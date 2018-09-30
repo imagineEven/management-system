@@ -16,7 +16,6 @@ export default {
       'roles'
     ]),
     mounted() {
-      console.log(1111)
     }
   }
 }

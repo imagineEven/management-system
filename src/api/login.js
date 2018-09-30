@@ -2,18 +2,18 @@ import request from '@/utils/request'
 import apis from '@/utils/apis'
 
 export function login(username, password) {
+  //debugger
+  console.log(username, password)
   return request({
-    url: apis.STORE_LOGIN_NORMAL,
+    url: apis.SIGN_IN,
     method: 'post',
-    data: {
-      Data: JSON.stringify(
-        {
-          username,
-          password,
-          sessionId: null
-        }
+    data: JSON.stringify(
+          {
+            username,
+            password,
+            sessionId: null
+          }
       )
-    }
   })
 }
 

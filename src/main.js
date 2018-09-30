@@ -14,6 +14,7 @@ import store from './store';
 
 import '@/icons'; // icon
 import '@/permission'; // permission control
+require('@/mockjs')
 
 /* Vue.use(ElementUI, { locale }) //国际化*/
 Vue.use(ElementUI);

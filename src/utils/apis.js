@@ -10,6 +10,9 @@ const apis = {
   STORE_DETAIL: 'store/detail.action', // 获取门店详情
   STORE_SAVE: 'store/save.action', // 修改门店信息
 
+  //Even
+  SIGN_IN: '/api/user/signIn'
+
 }
 
 export default apis

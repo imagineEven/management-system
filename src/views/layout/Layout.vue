@@ -12,7 +12,7 @@
 <script>
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
-
+import axios from 'axios'
 export default {
   name: 'layout',
   components: {
@@ -39,10 +39,18 @@ export default {
   methods: {
     handleClickOutside() {
       this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
-    }
+    },
+     look(){
+        axios.get("/user/info?nihao").then(res=>{
+          console.log('mock 模拟的数据');
+          console.log(res);
+        }).catch(res=>{
+          console.log("err")
+        });
+      }
   },
   mounted() {
-
+    this.look();
   }
 }
 

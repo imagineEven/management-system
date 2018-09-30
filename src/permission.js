@@ -3,7 +3,7 @@ import store from './store';
 import { Message } from 'element-ui';
 import NProgress from 'nprogress'; // 加载进度条
 import 'nprogress/nprogress.css';// 加载进度条样式
-import { getSessionId, getLocalStorage } from '@/utils/auth'; // 获取sessionId
+import { getSessionId, getLocalStorage } from '@/utils/local'; // 获取sessionId
 
 NProgress.configure({ showSpinner: false }); // 进度条初始化
 
@@ -20,9 +20,7 @@ router.beforeEach((to, from, next) => {
     } else {
       //next();
       if (store.getters.roles.length === 0) { // 判断当前用户是否已拉取完user_info信息
-        debugger
         store.dispatch('GetInfo').then(res => { // 拉取user_info
-          console.log(res.data.roles);
           const roles = res.data.roles; // note: roles参数必须是一个数组。如: ['editor','develop']
           store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
             router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
@@ -36,15 +34,14 @@ router.beforeEach((to, from, next) => {
             next({ path: '/' });
           });
         });
-        debugger
       } else {
-        // let roles = ['admin'];
-        // store.dispatch('GenerateRoutes', { roles }).then(() => {
-        //   router.addRoutes(store.getters.addRouters);
-        //   setTimeout(() => {
-        //     next({ ...to, replace: true });
-        //   }, 20);
-        // });
+        let roles = ['admin'];
+        store.dispatch('GenerateRoutes', { roles }).then(() => {
+          router.addRoutes(store.getters.addRouters);
+          setTimeout(() => {
+            next({ ...to, replace: true });
+          }, 20);
+        });
         next();
       }
     }
