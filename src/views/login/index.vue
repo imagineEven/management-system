@@ -53,7 +53,7 @@ export default {
     }
     return {
       loginForm: {
-        username: 'funfair',
+        username: 'even',
         password: '1'
       },
       loginRules: {
@@ -96,6 +96,9 @@ export default {
         }
       })
     }
+  },
+  mounted() {
+
   }
 }
 </script>
