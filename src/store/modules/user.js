@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/login'
 /* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
-import { getSessionId, setSessionId, removeSessionId, setLocalStorage } from '@/utils/local'
+//import { getSessionId, setSessionId, setLocalStorage } from '@/utils/local'
 const user = {
   state: {
     /* token: getToken(), */
@@ -73,7 +73,7 @@ const user = {
         logout(state.sessionId).then(() => {
           commit('SET_SESSIONID', '')
           commit('SET_ROLES', [])
-          removeSessionId()
+          //removeSessionId()
           resolve()
         }).catch(error => {
           reject(error)
@@ -85,7 +85,7 @@ const user = {
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_SESSIONID', '')
-        removeSessionId()
+        //removeSessionId()
         resolve()
       })
     }
