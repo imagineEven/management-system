@@ -1,21 +1,21 @@
 import { login, logout, getInfo } from '@/api/login'
 /* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
-//import { getSessionId, setSessionId, setLocalStorage } from '@/utils/local'
+import { setLocalStorage, getLocalStorage } from '@/utils/local'
 const user = {
   state: {
     /* token: getToken(), */
-    //sessionId: getSessionId(),
+    localId: getLocalStorage('token'),
     name: 'Even',
     avatar: '',
-    roles: ['admin', 222, 333, 444]
+    roles: []
   },
 
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    SET_SESSIONID: (state, sessionId) => {
-      state.sessionId = sessionId
+    SET_LOCALID: (state, localId) => {
+      state.localId = localId
     },
     SET_NAME: (state, name) => {
       state.name = name
@@ -32,14 +32,13 @@ const user = {
     // 登录
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
-      //setLocalStorage(username, userInfo.password)
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
-          console.log('response')
-          console.log(response)
-          console.log('response-end')
-          //setLocalStorage('token', response.token)
-          //commit('SET_SESSIONID', data.sessionId)
+          // console.log('response')
+          // console.log(response)
+          // console.log('response-end')
+          setLocalStorage('token', response.token)
+          commit('SET_LOCALID', response.token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -50,11 +49,16 @@ const user = {
     // 获取用户信息
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getInfo(state.sessionId).then(response => {
+        console.log(state.localId);
+        //debugger
+        getInfo(state.localId).then(response => {
+
+          console.log('response')
+          console.log(response)
           const data = response.data
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
-            console.log(data)
+            console.log(state)
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
@@ -71,7 +75,7 @@ const user = {
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.sessionId).then(() => {
-          commit('SET_SESSIONID', '')
+          //commit('SET_SESSIONID', '')
           commit('SET_ROLES', [])
           //removeSessionId()
           resolve()

@@ -17,11 +17,14 @@ export function login(username, password) {
   })
 }
 
-export function getInfo(sessionId) {
+export function getInfo(localId) {
+  //console.log()
   return request({
     url: '/user/info',
     method: 'get',
-    params: { sessionId }
+    params: {
+      data: JSON.stringify({ localId })
+    }
   })
 }
 
