@@ -21,9 +21,9 @@ router.beforeEach((to, from, next) => {
       next();
       if (store.getters.roles.length === 0) { // 判断当前用户是否已拉取完user_info信息
         store.dispatch('GetInfo').then(res => { // 拉取user_info
-          console.log(res);
           const roles = res.data.roles; // note: roles参数必须是一个数组。如: ['editor','develop']
-    //       store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
+          console.log('roles', roles)
+          store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
     //         router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
     //         setTimeout(function() {
     //           next({ ...to, replace: true }); // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
     //         Message.error(err || '验证已失效，请重新登录！');
     //         next({ path: '/' });
     //       });
-    //     });
+        });
     //   } else {
     //     let roles = ['admin'];
     //     store.dispatch('GenerateRoutes', { roles }).then(() => {
