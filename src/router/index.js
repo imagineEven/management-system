@@ -59,25 +59,31 @@ export const asyncRouterMap = [
     redirect: '/example/table',
     name: 'Example',
     meta: {
-      title: '例子',
+      title: '用户中心',
       icon: 'example'
     },
     children: [
       {
         path: 'table',
         name: 'Table',
-        component: () =>
-                        import ('@/views/table/index'),
+        component: () => import('@/views/table/index'),
         meta: {
           title: '表格',
           icon: 'table'
         }
       },
       {
+        path: 'phaser',
+        name: 'Phaser',
+        meta: {
+          title: 'phaser2',
+          icon: 'table'
+        }
+      },
+      {
         path: 'tree',
         name: 'Tree',
-        component: () =>
-                        import ('@/views/tree/index'),
+        component: () => import('@/views/tree/index'),
         meta: {
           title: '树结构',
           icon: 'tree',
@@ -87,18 +93,41 @@ export const asyncRouterMap = [
     ]
   },
   {
-    path: '/form',
+    path: '/example',
     component: Layout,
     children: [{
       path: 'index',
       name: 'Form',
       component: () =>
-                  import ('@/views/form/index'),
+                  import('@/views/form/index'),
       meta: {
         title: '表单',
         icon: 'form'
       }
     }]
+  },
+  {
+    path: 'index',
+    name: 'Form',
+    component: Layout,
+    component: () =>
+                import('@/views/form/index'),
+    meta: {
+      title: '表单2',
+      icon: 'form'
+    },
+    children: [
+      {
+        path: 'index',
+        name: 'Form2',
+        component: () =>
+                    import('@/views/form/index'),
+        meta: {
+          title: '表单3',
+          icon: 'form'
+        }
+      }
+    ]
   },
   {
     path: '*',
