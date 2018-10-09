@@ -1,9 +1,12 @@
 import request from '@/utils/request'
+import { getLocalStorage } from '@/utils/local.js'
 
-export function getList(params) {
+export function getList() {
   return request({
-    url: '/table/list',
+    url: '/api/table/list',
     method: 'get',
-    params
+    params: {
+      data: JSON.stringify({localId: getLocalStorage('token')})
+    }
   })
 }

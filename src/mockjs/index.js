@@ -1,6 +1,7 @@
 
 const Mock = require('mockjs');
 import { userInfo } from './modules/login.js'
+import { table } from './modules/table.js'
 
 
 
@@ -10,4 +11,4 @@ import { userInfo } from './modules/login.js'
 
 Mock.mock(/\/user\/info\.*/, 'get', userInfo.getUserInfo.bind(userInfo))
 Mock.mock(/\/api\/user\/signIn/, 'post', userInfo.signIn.bind(userInfo))
-Mock.mock(/\/user\/signUp/, 'post', userInfo.signUp)
+Mock.mock(/\/api\/table\/list/, 'get', table.getTableList.bind(table))

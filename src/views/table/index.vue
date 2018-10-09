@@ -42,8 +42,16 @@ import { getList } from '@/api/table'
 export default {
   data() {
     return {
-      list: null,
-      listLoading: true
+      listLoading: false,
+      // list: [
+      //   {
+      //     title: '大神',
+      //     author: 'even',
+      //     pageviews: 'haha',
+      //     display_time: '12'
+      //   }
+      // ],
+      list: null
     }
   },
   filters: {
@@ -62,8 +70,9 @@ export default {
   methods: {
     fetchData() {
       this.listLoading = true
-      getList(this.listQuery).then(response => {
-        this.list = response.data.items
+      getList().then(response => {
+        console.log(response)
+        this.list = response;
         this.listLoading = false
       })
     }

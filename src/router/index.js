@@ -9,8 +9,10 @@ Vue.use(Router);
 
 /* Layout */
 import Layout from '../views/layout/Layout';
+import whitePage from '../views/task/index';
 
 /**
+* fake router
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
 * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
 *                                if not set alwaysShow, only more than one route under the children
@@ -22,6 +24,7 @@ import Layout from '../views/layout/Layout';
     icon: 'svg-name'             the icon show in the sidebar,
   }
 **/
+
 export const constantRouterMap = [
   {
     path: '/login',
@@ -56,7 +59,6 @@ export const asyncRouterMap = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
     name: 'Example',
     meta: {
       title: '用户中心',
@@ -66,17 +68,9 @@ export const asyncRouterMap = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/table/index.vue'),
         meta: {
           title: '表格',
-          icon: 'table'
-        }
-      },
-      {
-        path: 'phaser',
-        name: 'Phaser',
-        meta: {
-          title: 'phaser2',
           icon: 'table'
         }
       },
@@ -87,44 +81,23 @@ export const asyncRouterMap = [
         meta: {
           title: '树结构',
           icon: 'tree',
-          roles: ['admin']
+          roles: ['even']
         }
       }
     ]
   },
   {
-    path: '/example',
-    component: Layout,
-    children: [{
-      path: 'index',
-      name: 'Form',
-      component: () =>
-                  import('@/views/form/index'),
-      meta: {
-        title: '表单',
-        icon: 'form'
-      }
-    }]
-  },
-  {
-    path: 'index',
-    name: 'Form',
-    component: Layout,
-    component: () =>
-                import('@/views/form/index'),
-    meta: {
-      title: '表单2',
-      icon: 'form'
-    },
+    path: '/white',
+    name: 'White',
+    component: whitePage,
     children: [
       {
-        path: 'index',
-        name: 'Form2',
-        component: () =>
-                    import('@/views/form/index'),
+        path: 'task',
+        name: 'Task',
+        component:() => import('@/views/task/taskinfo'),
         meta: {
-          title: '表单3',
-          icon: 'form'
+          title: '自己的',
+          icon: 'tree'
         }
       }
     ]
@@ -132,6 +105,5 @@ export const asyncRouterMap = [
   {
     path: '*',
     redirect: '/404',
-    hidden: true
   }
 ];

@@ -18,7 +18,6 @@
 
         <template v-for="child in item.children" v-if="!child.hidden">
           <sidebar-item :is-nest="true" class="nest-menu" v-if="child.children&&child.children.length>0" :routes="[child]" :key="child.path"></sidebar-item>
-
           <router-link v-else :to="item.path+'/'+child.path" :key="child.name">
             <el-menu-item :index="item.path+'/'+child.path">
               <svg-icon v-if="child.meta&&child.meta.icon" :icon-class="child.meta.icon"></svg-icon>

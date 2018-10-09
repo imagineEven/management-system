@@ -5,15 +5,15 @@ const WIDTH = 1024
 const RATIO = 3
 
 export default {
-  watch: {
-    $route(route) {
-      console.log($route)
-      if (this.device === 'mobile' && this.sidebar.opened) {
-        store.dispatch('CloseSideBar', { withoutAnimation: false })
-        console.log('你什么时候才能改变？')
-      }
-    }
-  },
+  // watch: {
+  //   $route(route) {
+  //     console.log($route)
+  //     if (this.device === 'mobile' && this.sidebar.opened) {
+  //       store.dispatch('CloseSideBar', { withoutAnimation: false })
+  //       console.log('你什么时候才能改变？')
+  //     }
+  //   }
+  // },
   beforeMount() {
     window.addEventListener('resize', this.resizeHandler);
   },

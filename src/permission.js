@@ -6,13 +6,11 @@ import 'nprogress/nprogress.css';// 加载进度条样式
 import { getLocalStorage } from '@/utils/local'; // 获取sessionId
 
 NProgress.configure({ showSpinner: false }); // 进度条初始化
-
 const whiteList = ['/login'];// 无需登录就可以访问的页面白名单
+
 router.beforeEach((to, from, next) => {
   NProgress.start(); // 进度条开始拉动
-  //console.log(getLocalStorage('token'));
   if (getLocalStorage('token')) { // 检查是否有sessionId
-    /* 有 sessionId*/
     if (to.path === '/login') {
       next({ path: '/' });
       NProgress.done(); // 如果当前页面是dashboard将不会触发afterEach事件  所以手动处理。
@@ -20,9 +18,8 @@ router.beforeEach((to, from, next) => {
       if (store.getters.roles.length === 0) { // 判断当前用户是否已拉取完user_info信息
         store.dispatch('GetInfo').then(res => { // 拉取user_info
           const roles = res.data.roles; // note: roles参数必须是一个数组。如: ['editor','develop']
-          console.log('roles', roles)
           store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
-            //router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
+            router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
             setTimeout(function() {
               next({ ...to, replace: true }); // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
             }, 20);
@@ -34,18 +31,10 @@ router.beforeEach((to, from, next) => {
           });
         });
       } else {
-        let roles = store.getters.roles;
-        store.dispatch('GenerateRoutes', { roles }).then(() => {
-          //router.addRoutes(store.getters.addRouters);
-          setTimeout(() => {
-            next({ ...to, replace: true });
-          }, 20);
-        });
         next();
       }
     }
   } else {
-    /* 没有 sessionId*/
     if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
       next();
     } else {
