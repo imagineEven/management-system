@@ -10,7 +10,7 @@
 
   }
 </script>
-<style>
+<style rel="stylesheet/scss" lang="scss" scoped>
 .taskInfo {
   margin-bottom: 80px;
   background: red;

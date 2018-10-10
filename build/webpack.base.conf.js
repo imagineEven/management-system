@@ -4,12 +4,18 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+// add phaser config
+let phaserModule = path.join(__dirname, '../node_modules/phaser-ce/')
+let phaser = path.join(phaserModule, 'build/custom/phaser-split.js')
+let pixi = path.join(phaserModule, 'build/custom/pixi.js')
+let p2 = path.join(phaserModule, 'build/custom/p2.js')
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
+  test: /\.(js|vue)$/, 
   loader: 'eslint-loader',
   enforce: 'pre',
   include: [resolve('src'), resolve('test')],
@@ -22,7 +28,9 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    // add phaser config
+    vendor: ['pixi', 'p2', 'phaser']
   },
   output: {
     path: config.build.assetsRoot,
@@ -36,6 +44,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      // add pahser config
+      'phaser': phaser,
+      'pixi': pixi,
+      'p2': p2
     }
   },
   module: {
@@ -83,7 +95,11 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      // add phaser config
+      { test: /pixi\.js/, use: ['expose-loader?PIXI'] },
+      { test: /phaser-split\.js$/, use: ['expose-loader?Phaser'] },
+      { test: /p2\.js/, use: ['expose-loader?p2'] }
     ]
   },
   node: {

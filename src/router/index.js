@@ -9,7 +9,7 @@ Vue.use(Router);
 
 /* Layout */
 import Layout from '../views/layout/Layout';
-import whitePage from '../views/task/index';
+import whitePage from '../views/phaser/index';
 
 /**
 * fake router
@@ -94,7 +94,7 @@ export const asyncRouterMap = [
       {
         path: 'task',
         name: 'Task',
-        component:() => import('@/views/task/taskinfo'),
+        component:() => import('@/views/phaser/taskinfo'),
         meta: {
           title: '自己的',
           icon: 'tree'

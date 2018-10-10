@@ -13,6 +13,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "phaser-ce": "^2.7.10",
     "axios": "0.17.1",
     "element-ui": "2.3.4",
     "js-cookie": "2.2.0",
@@ -23,6 +24,7 @@
     "vuex": "3.0.1"
   },
   "devDependencies": {
+    "expose-loader": "^0.7.3",
     "autoprefixer": "7.2.3",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.3",
