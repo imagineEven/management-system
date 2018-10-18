@@ -34,53 +34,53 @@
 
 
 let testData = [
-    {
-      name: "even",
-      children: [
-        {
-          name: 'levi'
-        },
-        {
-          name: "name",
-          children: [
-            {
-              name: "even"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: "even",
-      children: [
-        {
-          name: 'levi'
-        },
-        {
-          name: "even",
-          children: [
-            {
-              name: "even"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-
-  function filterData(data) {
-    let accessedData = data.filter(item => {
-      if(item.name === 'even') {
-        if(item.children && item.children.length > 0) {
-          item.children = filterData(item.children)
-        }
-        return true
-      } else {
-        return false
+  {
+    name: "even",
+    children: [
+      {
+        name: 'levi'
+      },
+      {
+        name: "name",
+        children: [
+          {
+            name: "even"
+          }
+        ]
       }
-    })
-    return accessedData
+    ]
+  },
+  {
+    name: "even",
+    children: [
+      {
+        name: 'levi'
+      },
+      {
+        name: "even",
+        children: [
+          {
+            name: "even"
+          }
+        ]
+      }
+    ]
   }
+]
+
+function filterData(data) {
+  let accessedData = data.filter(item => {
+    if (item.name === 'even') {
+      if (item.children && item.children.length > 0) {
+        item.children = filterData(item.children)
+      }
+      return true
+    } else {
+      return false
+    }
+  })
+  return accessedData
+}
 
 //   console.log(111);
 //   console.log(filterData(testData));
