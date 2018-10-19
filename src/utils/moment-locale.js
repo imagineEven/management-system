@@ -1,5 +1,19 @@
 import moment from 'moment';
 
+/*
+var myDate = new Date()
+// console.log(myDate.getDate());
+var moment = require('moment');
+moment().format('MMMM Do YYYY, h:mm:ss a'); // March 20th 2017, 11:52:12 am
+moment().format('dddd');                    // Monday
+moment().format("MMM Do YY");               // Mar 20th 17
+moment().format('YYYY [escaped] YYYY');     // 2017 escaped 2017
+moment().format();                          // 2018-10-18T10:23:52+08:00
+moment(myDate).format("Y/M/D-h:m:s")        // 2018/10/18-10:52:31
+moment(myDate).valueOf()                    // 1539831178960
+moment(myDate).format('LL')                 // 2018年10月18日
+*/
+
 moment.defineLocale('zh-cn', {  
     months : ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],  
     monthsShort : ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],  

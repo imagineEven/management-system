@@ -13,6 +13,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "compress.js": "^1.1.1",
     "phaser-ce": "^2.7.10",
     "axios": "0.17.1",
     "element-ui": "2.3.4",

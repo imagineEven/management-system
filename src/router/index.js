@@ -83,6 +83,16 @@ export const asyncRouterMap = [
           icon: 'tree',
           roles: ['even']
         }
+      },
+      {
+        path: 'upload',
+        name: '上传图片',
+        component: () => import('@/views/upload/index'),
+        meta: {
+          title: '上传图片测试',
+          icon: 'tree',
+          roles: ['even']
+        }
       }
     ]
   },

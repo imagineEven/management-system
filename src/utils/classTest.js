@@ -83,31 +83,12 @@ function filterData(data) {
 }
 
 console.log('dateStart');
-var myDate = new Date()
-// console.log(myDate.getDate());
-var moment = require('moment');
-moment().format('MMMM Do YYYY, h:mm:ss a'); // March 20th 2017, 11:52:12 am
-moment().format('dddd');                    // Monday
-moment().format("MMM Do YY");               // Mar 20th 17
-moment().format('YYYY [escaped] YYYY');     // 2017 escaped 2017
-moment().format();                          // 2018-10-18T10:23:52+08:00
-moment(myDate).format("Y/M/D-h:m:s")        // 2018/10/18-10:52:31
-moment(myDate).valueOf()                    // 1539831178960
-moment(myDate).format('LL')                 // 2018年10月18日
 
-//console.log(moment(myDate).format("YYYY/MMM/dddd-h:m:s"));
 
-//console.log(moment(myDate).format('LL'));
-
-// function combine(fn) {
-//   return function () {
-//     let arg1 = arguments;
-//     console.log(arg1)
-//     return function () {
-//       fn([...arg1], [...arguments]);
-//     };
-//   };
-// }
+import { compressFile } from './img.js'
+import vuePng from '@/assets/logo.png'
+// let data = compressFile(vuePng);
+// console.log(data);
 
 
 console.log('dateEnd');
