@@ -27,6 +27,10 @@ class UserInfo {
 
   }
 
+  logout(config) {
+    return {name: '退出'}
+  }
+
   init() {
     this.userMap = {
       even: {

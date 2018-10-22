@@ -11,4 +11,5 @@ import { table } from './modules/table.js'
 
 Mock.mock(/\/user\/info\.*/, 'get', userInfo.getUserInfo.bind(userInfo))
 Mock.mock(/\/api\/user\/signIn/, 'post', userInfo.signIn.bind(userInfo))
+Mock.mock(/\/user\/logout/, 'post', userInfo.logout.bind(userInfo))
 Mock.mock(/\/api\/table\/list/, 'get', table.getTableList.bind(table))

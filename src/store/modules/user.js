@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/login'
 /* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
-import { setLocalStorage, getLocalStorage } from '@/utils/local'
+import { setLocalStorage, getLocalStorage, removeLocalStorage } from '@/utils/local'
 const user = {
   state: {
     /* token: getToken(), */
@@ -74,10 +74,10 @@ const user = {
     // 登出
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
-        logout(state.sessionId).then(() => {
-          //commit('SET_SESSIONID', '')
+        logout(state.sessionId).then((response) => {
+          console.log('response',response)
           commit('SET_ROLES', [])
-          //removeSessionId()
+          removeLocalStorage('token')
           resolve()
         }).catch(error => {
           reject(error)
@@ -88,8 +88,7 @@ const user = {
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
-        commit('SET_SESSIONID', '')
-        //removeSessionId()
+        removeLocalStorage('token')
         resolve()
       })
     }
