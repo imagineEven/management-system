@@ -13,15 +13,17 @@
     "test": "npm run lint"
   },
   "dependencies": {
-    "compress.js": "^1.1.1",
-    "phaser-ce": "^2.7.10",
     "axios": "0.17.1",
+    "compress.js": "^1.1.1",
+    "cropper": "^4.0.0",
     "element-ui": "2.3.4",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "phaser-ce": "^2.7.10",
     "vue": "2.5.10",
     "vue-router": "3.0.1",
+    "vue-upload-component": "^2.8.14",
     "vuex": "3.0.1"
   },
   "devDependencies": {

@@ -20,6 +20,9 @@ window.PIXI = require('phaser-ce/build/custom/pixi.js');
 window.p2 = require('phaser-ce/build/custom/p2.js');
 window.Phaser = require('phaser-ce/build/custom/phaser-split.js');
 import './utils/moment-locale';
+
+const VueUploadComponent = require('vue-upload-component')
+Vue.component('file-upload', VueUploadComponent)
 /* Vue.use(ElementUI, { locale }) //国际化*/
 Vue.use(ElementUI);
 
