@@ -5,10 +5,6 @@
       <h3>拖拽照片上传</h3>
     </div>
 
-    <div>
-      <img ref="testImage" src='https://www.gravatar.com/avatar/default?s=200&r=pg&d=mm'  class="rounded-circle" />
-    </div>
-
     <div class="avatar-upload"  v-show="!edit">
       <div class="text-center p-2">
         <label for="avatar">
@@ -46,6 +42,7 @@
     <!-- <div class="pt-5">
       Source code: <a href="https://github.com/lian-yue/vue-upload-component/blob/master/docs/views/examples/Avatar.vue">/docs/views/examples/Avatar.vue</a>
     </div> -->
+          
   </div>
 </template>
 <style>
@@ -87,8 +84,9 @@
 
 
 <script>
-import Cropper from 'cropperjs'
-import FileUpload from 'vue-upload-component'
+//import Cropper from 'cropperjs'
+import FileUpload from 'vue-upload-component';
+
 export default {
   components: {
     FileUpload,
@@ -98,63 +96,68 @@ export default {
       files: [],
       edit: false,
       cropper: false,
+      base64str: undefined
     }
   },
   mounted() {
+    //console.log(compressFile);
 
-    let cropper = new Cropper(this.$refs.testImage, {
-      aspectRatio: 1 / 1,
-      viewMode: 1,
-    })
-    console.log(cropper);
+    // let cropper = new Cropper(this.$refs.testImage, {
+    //   aspectRatio: 1 / 1,
+    //   viewMode: 1,
+    // })
+    // console.log(cropper);
     
   },
 
 
   watch: {
-    edit(value) {
-      if (value) {
-        this.$nextTick(function () {
-          if (!this.$refs.editImage) {
-            return
-          }
-          //console.log('this.cropper',this.cropper);          
-          let cropper = new Cropper(this.$refs.editImage, {
-            aspectRatio: 1 / 1,
-            viewMode: 1,
-          })
-          this.cropper = cropper
-          console.log('this.cropper',this.cropper);
-        })
-      } else {
-        if (this.cropper) {
-          this.cropper.destroy()
-          this.cropper = false
-        }
-      }
-    }
+    // edit(value) {
+    //   if (value) {
+    //     this.$nextTick(function () {
+    //       if (!this.$refs.editImage) {
+    //         return
+    //       }
+    //       console.log('this.cropper',this.cropper);          
+    //       let cropper = new Cropper(this.$refs.editImage, {
+    //         aspectRatio: 1 / 1,
+    //         viewMode: 1,
+    //       })
+    //       this.cropper = cropper
+    //       console.log('this.cropper',this.cropper);
+    //     })
+    //   } else {
+    //     if (this.cropper) {
+    //       this.cropper.destroy()
+    //       this.cropper = false
+    //     }
+    //   }
+    // }
   },
   methods: {
+
     editSave() {
       this.edit = false
       let oldFile = this.files[0]
-      let binStr = atob(this.cropper.getCroppedCanvas().toDataURL(oldFile.type).split(',')[1])
-      let arr = new Uint8Array(binStr.length)
-      for (let i = 0; i < binStr.length; i++) {
-        arr[i] = binStr.charCodeAt(i)
-      }
-      let file = new File([arr], oldFile.name, { type: oldFile.type })
-      this.$refs.upload.update(oldFile.id, {
-        file,
-        type: file.type,
-        size: file.size,
-        active: true,
-      })
+      console.log(oldFile);
+      //let binStr = atob(this.cropper.getCroppedCanvas().toDataURL(oldFile.type).split(',')[1])
+      //let arr = new Uint8Array(binStr.length)
+      // for (let i = 0; i < binStr.length; i++) {
+      //   arr[i] = binStr.charCodeAt(i)
+      // }
+      //let file = new File([arr], oldFile.name, { type: oldFile.type })
+      // this.$refs.upload.update(oldFile.id, {
+      //   file,
+      //   type: file.type,
+      //   size: file.size,
+      //   active: true,
+      // })
     },
     alert(message) {
       alert(message)
     },
     inputFile(newFile, oldFile, prevent) {
+      debugger
       if (newFile && !oldFile) {
         this.$nextTick(function () {
           this.edit = true
@@ -165,6 +168,7 @@ export default {
       }
     },
     inputFilter(newFile, oldFile, prevent) {
+      debugger
       if (newFile && !oldFile) {
         if (!/\.(gif|jpg|jpeg|png|webp)$/i.test(newFile.name)) {
           this.alert('Your choice is not a picture')
@@ -177,6 +181,9 @@ export default {
         if (URL && URL.createObjectURL) {
           newFile.url = URL.createObjectURL(newFile.file)
         }
+        console.log(newFile.file)
+        console.log(newFile)
+        debugger;
       }
     }
   }

@@ -83,13 +83,44 @@ export const asyncRouterMap = [
           icon: 'tree',
           roles: ['even']
         }
-      },
+      }
+    ]
+  },
+  {
+    path: '/example',
+    component: Layout,
+    name: '个人中心',
+    meta: {
+      title: '个人中心',
+      icon: 'example'
+    },
+    children: [
       {
         path: 'upload',
         name: '上传图片',
         component: () => import('@/views/upload/index'),
         meta: {
-          title: '上传图片测试',
+          title: '上传图片',
+          icon: 'tree',
+          roles: ['even']
+        }
+      },
+      {
+        path: 'cropper',
+        name: '修剪',
+        component: () => import('@/views/cropper/index'),
+        meta: {
+          title: '修剪',
+          icon: 'tree',
+          roles: ['even']
+        }
+      },
+      {
+        path: 'compress',
+        name: '压缩图片',
+        component: () => import('@/views/compress/index'),
+        meta: {
+          title: '压缩图片',
           icon: 'tree',
           roles: ['even']
         }
@@ -106,7 +137,7 @@ export const asyncRouterMap = [
         name: 'Task',
         component:() => import('@/views/phaser/taskinfo'),
         meta: {
-          title: '自己的',
+          title: 'phaser.js',
           icon: 'tree'
         }
       }
