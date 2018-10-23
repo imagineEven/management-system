@@ -11,7 +11,11 @@ const apis = {
   STORE_SAVE: 'store/save.action', // 修改门店信息
 
   //Even
-  SIGN_IN: '/api/user/signIn'
+  SIGN_IN: '/api/user/signIn',
+  USER_LOGOUT : '/user/logout',
+  USER_INFO: '/user/info',
+  UPLOAD_IMAGE: '/upload/image'
+
 
 }
 

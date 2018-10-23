@@ -13,12 +13,15 @@
 </template>
 
 <script>
-import { compressFile } from '@/utils/img.js';
+import { compressFile } from '@/utils/img';
 export default {
   data() {
     return {
       base64str: ''
     }
+  },
+  mounted() {
+    console.log('process.env.BASE_API', process.env.BASE_API)
   },
   methods: {
     fetchImage(event) {

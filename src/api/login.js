@@ -20,7 +20,7 @@ export function login(username, password) {
 export function getInfo(localId) {
   //console.log()
   return request({
-    url: '/user/info',
+    url: apis.USER_INFO,
     method: 'get',
     params: {
       data: JSON.stringify({ localId })
@@ -30,7 +30,7 @@ export function getInfo(localId) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
+    url: apis.USER_LOGOUT,
     method: 'post'
   })
 }
