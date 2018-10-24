@@ -97,10 +97,10 @@ export const asyncRouterMap = [
     children: [
       {
         path: 'upload',
-        name: '上传图片',
+        name: '设置头像',
         component: () => import('@/views/upload/index'),
         meta: {
-          title: '上传图片',
+          title: '设置头像',
           icon: 'tree',
           roles: ['even']
         }

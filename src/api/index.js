@@ -1,10 +1,9 @@
 import * as login from './login';
 import * as upload from './upload';
 
+console.log('upload', upload);
 
-
-
-export {
+export default {
   login,
-  upload
+  upload: upload.uploadImage
 }

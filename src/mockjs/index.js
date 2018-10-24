@@ -2,6 +2,7 @@
 const Mock = require('mockjs');
 import { userInfo } from './modules/login.js'
 import { table } from './modules/table.js'
+import { upload } from './modules/upload.js'
 
 
 
@@ -13,3 +14,6 @@ Mock.mock(/\/user\/info\.*/, 'get', userInfo.getUserInfo.bind(userInfo))
 Mock.mock(/\/api\/user\/signIn/, 'post', userInfo.signIn.bind(userInfo))
 Mock.mock(/\/user\/logout/, 'post', userInfo.logout.bind(userInfo))
 Mock.mock(/\/api\/table\/list/, 'get', table.getTableList.bind(table))
+
+// upload compress image
+Mock.mock(/\/upload\/image/, 'post', upload.image)
