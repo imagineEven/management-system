@@ -96,9 +96,9 @@ export const asyncRouterMap = [
     },
     children: [
       {
-        path: 'upload',
+        path: 'setAvatar',
         name: '设置头像',
-        component: () => import('@/views/upload/index'),
+        component: () => import('@/views/setAvatar/index'),
         meta: {
           title: '设置头像',
           icon: 'tree',
@@ -129,7 +129,7 @@ export const asyncRouterMap = [
   },
   {
     path: '/white',
-    name: 'White',
+    name: 'White01',
     component: whitePage,
     children: [
       {
@@ -142,6 +142,16 @@ export const asyncRouterMap = [
         }
       }
     ]
+  },
+  {
+    path: '/setAvatar',
+    name: '设置头像',
+    component: () => import('@/views/setAvatar/index'),
+    meta: {
+      title: '设置头像',
+      icon: 'tree',
+      roles: ['even']
+    }
   },
   {
     path: '*',

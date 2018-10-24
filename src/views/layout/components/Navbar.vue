@@ -20,9 +20,17 @@
             首页
           </el-dropdown-item>
         </router-link>
-        <el-dropdown-item divided>
+        <el-dropdown-item divided >
           <span @click="logout" style="display:block;">登出</span>
         </el-dropdown-item>
+
+        <!-- even add code edit avatar picture -->
+        <router-link  to="/setAvatar">
+          <el-dropdown-item divided>
+            <span @click="editAvatar" style="display:block;">编辑</span>
+          </el-dropdown-item>
+        </router-link>
+
       </el-dropdown-menu>
     </el-dropdown>
 
@@ -53,6 +61,9 @@ export default {
       this.$store.dispatch('FedLogOut').then(() => {
         location.reload() // 为了重新实例化vue-router对象 避免bug
       })
+    },
+    editAvatar() {
+      console.log(111);
     }
   }
 }
