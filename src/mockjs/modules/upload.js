@@ -4,7 +4,8 @@ class Upload{
   }
 
   image(config) {
-    console.log('config', config)
+    //console.log('config', config)
+    return true;
   }
 }
 

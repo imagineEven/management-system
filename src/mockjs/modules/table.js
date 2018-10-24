@@ -8,8 +8,9 @@ class Table {
 
   getTableList(config) {
     let param = mockparse.param2Obj(config);
+    //console.log('tableConfig', config);
     let localId = JSON.parse(param.data).localId;
-    console.log(localId)
+    //console.log(localId)
     return this.tableList.filter(item => {
       return item.userId === localId
     })[0].detail

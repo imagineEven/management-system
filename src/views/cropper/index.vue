@@ -55,6 +55,15 @@ export default {
     });
   },
   methods: {
+    string2buffer (str) {
+      //var hex = 'AA5504B10000B5'
+
+      var typedArray = new Uint8Array(str.match(/[\da-f]{2}/gi).map(function (h) {
+        return parseInt(h, 16)
+      }))
+
+      return typedArray.buffer
+    },
     //取消上传
     cancel() {
         this.panel = false;
@@ -66,12 +75,17 @@ export default {
       var url = null;
       if (window.createObjectURL != undefined) {
         // basic
+        debugger
         url = window.createObjectURL(file);
       } else if (window.URL != undefined) {
         // mozilla(firefox)
-        url = window.URL.createObjectURL(file);
+        debugger
+        //url = window.URL.createObjectURL(file);
+        url = this.string2buffer(window.URL.createObjectURL(file));
+        debugger
       } else if (window.webkitURL != undefined) {
         // webkit or chrome
+        debugger
         url = window.webkitURL.createObjectURL(file);
       }
       return url;
@@ -91,10 +105,13 @@ export default {
         return false;
       }
       this.picValue = files[0];
+
       this.url = this.getObjectURL(this.picValue);
       //每次替换图片要重新得到新的url
       if (this.cropper) {
+        debugger
         this.cropper.replace(this.url);
+        debugger
       }
       this.panel = true;
     },
@@ -107,7 +124,9 @@ export default {
         return;
       }
       // Crop
+      debugger
       croppedCanvas = this.cropper.getCroppedCanvas();
+      debugger
       // Round
       roundedCanvas = this.getRoundedCanvas(croppedCanvas);
       this.headerImage = roundedCanvas.toDataURL();
@@ -116,6 +135,7 @@ export default {
     },
     //canvas画图
     getRoundedCanvas(sourceCanvas) {
+      debugger
       var canvas = document.createElement("canvas");
       var context = canvas.getContext("2d");
       var width = sourceCanvas.width;
