@@ -3,6 +3,11 @@ import { StateGame } from '../stateGame'
 export default {
 
   mounted() {
-    let stateGame = new StateGame(this.$refs.gameScreen)
+    if (!this.stateGame) {
+      this.stateGame = new StateGame(this.$refs.gameScreen)
+    }
+  },
+  methods: {
+
   }
 }

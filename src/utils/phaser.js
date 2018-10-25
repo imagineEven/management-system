@@ -6,14 +6,14 @@ import { StateGame } from '@/views/phaser/stateGame.js';
 //, preload, create, update
 class BasePhaser{
   constructor(view, preload, create, update) {
-    if (this.game == null) {
+    //if (this.game == null) {
       this.state = {
         preload,
         create,
         update
       }
       this.game = new Phaser.Game('100', '100', Phaser.AUTO, view, this.state)
-    }
+    //}
   }
 
   allMethods() {
