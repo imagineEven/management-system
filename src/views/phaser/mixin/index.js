@@ -1,8 +1,8 @@
 import vuePng from '@/assets/logo.png'
-import { RotateGame } from './rotateGame'
+import { StateGame } from './StateGame'
 export default {
 
   mounted() {
-    let rotateGame = new RotateGame(this.$refs.gameScreen)
+    let stateGame = new StateGame(this.$refs.gameScreen)
   }
 }

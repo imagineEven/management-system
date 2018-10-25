@@ -6,12 +6,24 @@ import vuePng from '@/assets/logo.png';
 class BasePhaser{
   constructor(view, preload, create, update) {
     if (this.game == null) {
-      this.game = new Phaser.Game('100', '100', Phaser.AUTO, view, {
+      this.state = {
         preload,
         create,
         update
-      })
+      }
+      this.initState;
+      this.game = new Phaser.Game('100', '100', Phaser.AUTO, view, this.state)
     }
+  }
+
+  allMethods() {
+    this.game.add.tween(vueImage).to( { angle: 720 }, 1500, 'Linear', true).onComplete.add(() => {
+      
+    })    
+  }
+
+  toggleState() {
+
   }
 }
 
