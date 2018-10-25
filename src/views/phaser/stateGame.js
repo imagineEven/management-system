@@ -21,30 +21,33 @@ class StateGame extends BasePhaser{
     this.vueImage.input.enableDrag()
     this.vueImage.events.onInputDown.add(() => {
       console.log('图片被点击了')
+      this.vueImage.inputEnabled = false
+      this.rotateStart();
     })
     this.vueImage.anchor.set(0.5)
-    this.rotateMethod(this.vueImage, 360, 500).then(() => {
-      return this.rotateMethod(this.vueImage, 360, 700)
-    }).then(() => {
-      return this.rotateMethod(this.vueImage, 360, 800)
-    }).then(() => {
-      return this.rotateMethod(this.vueImage, 360, 900)
-    }).then(() => {
-      return this.rotateMethod(this.vueImage, 360, 1200)
-    }).then(() => {
-      return this.rotateMethod(this.vueImage, 360, 1800)
-    }).then(() => {
-      return this.rotateMethod(this.vueImage, 90, 2200)
-    })
   }
 
   myupdate() {
 
   }
 
+  rotateStart() {
+    this.rotateMethod(this.vueImage, 360, 500).then(() => {
+      return this.rotateMethod(this.vueImage, 720, 1200)
+    }).then(() => {
+      return this.rotateMethod(this.vueImage, 360, 1000)
+    }).then(() => {
+      return this.rotateMethod(this.vueImage, 360, 1500)
+    }).then(() => {
+      return this.rotateMethod(this.vueImage, 90, 1500)
+    }).then(() => {
+      this.vueImage.inputEnabled = true
+    })
+  }
+
   rotateMethod(pahser, ratateAngle, time ) {
     return new Promise((resolve, reject) => {
-      this.game.add.tween(pahser).to( { angle: +ratateAngle }, time, 'Linear', true).onComplete.add(() => {
+      this.game.add.tween(pahser).to( { angle: ratateAngle }, time, 'Linear', true).onComplete.add(() => {
         resolve();
       })
     })

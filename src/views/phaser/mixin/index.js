@@ -1,5 +1,5 @@
 import vuePng from '@/assets/logo.png'
-import { StateGame } from './StateGame'
+import { StateGame } from '../stateGame'
 export default {
 
   mounted() {
