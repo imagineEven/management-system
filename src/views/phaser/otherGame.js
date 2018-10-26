@@ -13,7 +13,7 @@ class OtherGame {
     this.vueImage = this.game.add.sprite(100, 100, 'sprite')
     this.vueImage.inputEnabled = true
     this.vueImage.input.enableDrag()
-    this.vueImage.events.onInputDown.add(() => {
+    this.vueImage.events.onInputUp.add(() => {
       console.log('图片被点击了')
       this.vueImage.inputEnabled = false
       this.rotateStart();

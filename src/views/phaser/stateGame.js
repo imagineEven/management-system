@@ -1,4 +1,6 @@
 import vuePng from '@/assets/logo.png';
+import correct from '@/assets/sound/correct.mp3';
+
 import { BasePhaser } from '@/utils/phaser'
 class StateGame { 
   constructor(game) {
@@ -7,14 +9,17 @@ class StateGame {
 
   preload() {
     this.game.load.image('sprite', vuePng)
+    //this.game.load.audio('correct', correct)
   }
 
   create() {
+    //let correctSound = this.game.add.audio('correct');
     this.vueImage = this.game.add.sprite(500, 400, 'sprite')
     this.vueImage.inputEnabled = true
     this.vueImage.input.enableDrag()
-    this.vueImage.events.onInputDown.add(() => {
+    this.vueImage.events.onInputUp.add(() => {
       console.log('图片被点击了')
+      //correctSound.play();
       this.vueImage.inputEnabled = false
       this.rotateStart();
     })
