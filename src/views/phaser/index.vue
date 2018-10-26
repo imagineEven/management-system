@@ -1,8 +1,8 @@
 <template>
   <div id='wrapper'>
     <div class="nav">
-       <el-button class="back" type="primary" plain @click="toggleState">其他</el-button>
-       <el-button class="back" type="primary" plain @click="clickBack">返回</el-button>
+       <el-button type="primary" plain @click="toggleState" class="other_game">其他场景</el-button>
+       <el-button class="back" type="primary" plain @click="clickBack">返回主页</el-button>
     </div>
     <div id="gameScreen" ref="gameScreen"></div>
   </div>
@@ -47,5 +47,8 @@
   .back {
     margin-left: auto;
     margin-right: 20px;
+  }
+  .other_game {
+    margin-left: 20px;
   }
 </style>

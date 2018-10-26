@@ -3,10 +3,7 @@ import { StateGame } from '@/views/phaser/stateGame.js';
 
 class BasePhaser{
   constructor(view) {
-    //if (this.game == null) {
-
       this.game = new Phaser.Game('100', '100', Phaser.AUTO, view)
-    //}
   }
 
   allMethods() {

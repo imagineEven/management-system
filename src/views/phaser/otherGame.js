@@ -1,8 +1,8 @@
 import vuePng from '@/assets/logo.png';
 import { BasePhaser } from '@/utils/phaser'
-class OtherGame extends BasePhaser{ 
-  constructor(view) {
-    super(view);
+class OtherGame { 
+  constructor(game) {
+    this.game = game
   }
 
   preload() {
