@@ -1,7 +1,6 @@
 <template>
 <div>
   <div  class="taskInfo">
-    我为什么不出现呢
   </div>
 </div> 
 </template>

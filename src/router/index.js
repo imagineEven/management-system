@@ -135,7 +135,7 @@ export const asyncRouterMap = [
       {
         path: 'task',
         name: 'Task',
-        component:() => import('@/views/phaser/taskinfo'),
+        //component:() => import('@/views/phaser/taskinfo'),
         meta: {
           title: 'phaser.js',
           icon: 'tree'

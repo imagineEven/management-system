@@ -1,6 +1,6 @@
-window.PIXI = require('phaser-ce/build/custom/pixi.js');
-window.p2 = require('phaser-ce/build/custom/p2.js');
-window.Phaser = require('phaser-ce/build/custom/phaser-split.js');
+// window.PIXI = require('phaser-ce/build/custom/pixi.js');
+// window.p2 = require('phaser-ce/build/custom/p2.js');
+// window.Phaser = require('phaser-ce/build/custom/phaser-split.js');
 import vuePng from '@/assets/logo.png';
 import { StateGame } from '@/views/phaser/stateGame.js';
 //, preload, create, update

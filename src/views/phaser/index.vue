@@ -20,21 +20,7 @@
 
     },
     methods: {
-      clickBack() {
-        console.log(this.stateGame)
-        console.log(this.stateGame.game)
-        this.stateGame.game.state.clearCurrentState()
-        this.stateGame.game.state.add('go', {
-          preload: ()=>{
-            console.log('change------state')
-          }
-        })
-        this.stateGame.game.state.start('go')
-        location.reload()
-        this.$router.push({
-          path: '/'
-        })
-      }
+
     }
   }
 </script>
