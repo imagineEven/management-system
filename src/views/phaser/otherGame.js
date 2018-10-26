@@ -1,6 +1,6 @@
 import vuePng from '@/assets/logo.png';
 import { BasePhaser } from '@/utils/phaser'
-class StateGame extends BasePhaser{ 
+class OtherGame extends BasePhaser{ 
   constructor(view) {
     super(view);
   }
@@ -10,7 +10,7 @@ class StateGame extends BasePhaser{
   }
 
   create() {
-    this.vueImage = this.game.add.sprite(500, 400, 'sprite')
+    this.vueImage = this.game.add.sprite(100, 100, 'sprite')
     this.vueImage.inputEnabled = true
     this.vueImage.input.enableDrag()
     this.vueImage.events.onInputDown.add(() => {
@@ -49,5 +49,5 @@ class StateGame extends BasePhaser{
 }
 
 export {
-  StateGame
+  OtherGame
 }

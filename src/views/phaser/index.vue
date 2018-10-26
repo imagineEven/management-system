@@ -1,6 +1,7 @@
 <template>
   <div id='wrapper'>
     <div class="nav">
+       <el-button class="back" type="primary" plain @click="toggleState">其他</el-button>
        <el-button class="back" type="primary" plain @click="clickBack">返回</el-button>
     </div>
     <div id="gameScreen" ref="gameScreen"></div>
