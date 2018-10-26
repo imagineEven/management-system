@@ -51,6 +51,8 @@ export default {
       }
   },
   mounted() {
+    //let view = document.getElementById('gameScreen')
+    console.log('gameScreen', document);
     this.look();
   }
 }

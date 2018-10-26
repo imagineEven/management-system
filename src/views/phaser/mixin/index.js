@@ -6,14 +6,15 @@ export default {
       this.stateGame = new StateGame(this.$refs.gameScreen);
       this.stateGame.game.state.add('stateGame', this.stateGame)
       this.stateGame.game.state.start('stateGame')
+      console.log('看看 我会加载几次')
   },
   methods: {
     clickBack() {
-      this.stateGame.game.state.clearCurrentState()
+      //this.stateGame.game.state.clearCurrentState()
       this.$router.push({
         path: '/'
       })
-      location.reload()
+      //location.reload()
     },
     toggleState() {
       this.stateGame.game.state.clearCurrentState()

@@ -29,11 +29,17 @@ export const constantRouterMap = [
   {
     path: '/login',
     component: () => import('@/views/login/index'),
+    meta: {
+
+    },
     hidden: true
   },
   {
     path: '/404',
     component: () => import('@/views/404'),
+    meta: {
+
+    },
     hidden: true
   },
   {
@@ -42,6 +48,9 @@ export const constantRouterMap = [
     redirect: '/dashboard',
     name: 'Dashboard',
     hidden: true,
+    meta: {
+      keepAlive: false // 不需要缓存
+    },
     children: [{
       path: 'dashboard',
       component: () => import('@/views/dashboard/index')
@@ -131,6 +140,9 @@ export const asyncRouterMap = [
     path: '/white',
     name: 'White01',
     component: whitePage,
+    meta: {
+      keepAlive: true
+    },
     children: [
       {
         path: 'task',
@@ -138,7 +150,8 @@ export const asyncRouterMap = [
         //component:() => import('@/views/phaser/taskinfo'),
         meta: {
           title: 'phaser.js',
-          icon: 'tree'
+          icon: 'tree',
+          keepAlive: true
         }
       }
     ]
