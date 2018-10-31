@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import phaserFrameWork from './mixin'
+  import phaserFrameWork from './mixin';
   export default {
     data() {
       return {

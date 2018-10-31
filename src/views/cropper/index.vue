@@ -19,12 +19,20 @@
           <label for="change"></label>  
         </div>  
           
-    </div>  
+    </div>
+    <br>
+    <br>
+    <br>
+    <audio :src="Correct" controls="controls">
+      Your browser does not support the audio tag.
+    </audio>
   </div>  
 </template>
 
 
 <script>
+//../../../static/song.ogg
+import correct from '@/assets/sound/correct.mp3';
 import Cropper from "cropperjs";
 export default {
   data() {
@@ -33,6 +41,7 @@ export default {
       picValue: "",
       cropper: "",
       croppable: false,
+      Correct: "correct",
       panel: false,
       url: "",
       imgCropperData: {

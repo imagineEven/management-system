@@ -10,7 +10,7 @@ class StateGame {
 
   preload() {
     this.game.load.image('sprite', vuePng)
-    this.game.load.audio('correct', select)
+    this.game.load.audio('correct', [correct])
   }
 
   create() {
