@@ -1,5 +1,6 @@
-import { login, logout, getInfo } from '@/api/login'
-/* import { getToken, setToken, removeToken, getSessionId, setSessionId, removeSessionId } from '@/utils/auth' */
+import { logout } from '@/api/login'
+import { login, getInfo } from '@/api/myJsonData'
+
 import { setLocalStorage, getLocalStorage, removeLocalStorage } from '@/utils/local'
 const user = {
   state: {
@@ -53,8 +54,9 @@ const user = {
         //debugger
         getInfo(state.localId).then(response => {
 
-          console.log('response')
-          console.log(response)
+          // console.log('response')
+          // console.log(response)
+          // console.log('responseEND')
           const data = response.data
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
@@ -75,7 +77,9 @@ const user = {
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.sessionId).then((response) => {
-          console.log('response',response)
+          console.log('response')
+          console.log(response)
+          console.log('responseend')
           commit('SET_ROLES', [])
           removeLocalStorage('token')
           resolve()

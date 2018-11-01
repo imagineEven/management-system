@@ -16,7 +16,7 @@ require('@/utils/classTest.js')
 
 import '@/icons'; // icon
 import '@/permission'; // permission control
-require('@/mockjs')
+//require('@/mockjs')
 window.PIXI = require('phaser-ce/build/custom/pixi.js');
 window.p2 = require('phaser-ce/build/custom/p2.js');
 window.Phaser = require('phaser-ce/build/custom/phaser-split.js');
