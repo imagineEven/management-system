@@ -1,5 +1,5 @@
 import vuePng from '@/assets/logo.png'
-import { SpinTheWheel } from '../spin-the-wheel'
+import { SpinTheWheel } from '../spin-the-wheel/spin-the-wheel'
 import { OtherGame } from '../otherGame'
 import { BasePhaser } from '@/utils/phaser'
 export default {
@@ -21,6 +21,12 @@ export default {
       this.otherGame = new OtherGame(this.game);
       this.game.state.add('otherGame', this.otherGame)
       this.game.state.start('otherGame')
+    },
+    spinTheWheel() {
+      this.game.state.clearCurrentState()      
+      this.SpinTheWheel = new SpinTheWheel(this.game);
+      this.game.state.add('SpinTheWheel', this.SpinTheWheel)
+      this.game.state.start('SpinTheWheel')
     }
   }
 }

@@ -1,0 +1,311 @@
+{
+  "localImage": {
+    "domBg": {
+      "image": "237cfd344ecccca7f9f78b6792284900"
+    },
+    "bg": {
+      "image": "7db3c5112404c4ee4d766af375ea2bfe"
+    },
+    "wheel": {
+      "image": "8d6b5993073a39fd207f64954bdabe05"
+    },
+    "base": {
+      "image": "972be2d89a04af3cb047dc387a419bf5"
+    },
+    "group": {
+      "image": "adac5e89d2159148f00e95e8e29a9686"
+    },
+    "group_hight": {
+      "image":  "09a3f0e4cd910c01376b420bec848349"
+    },
+    "spin_disable": {
+      "image": "d9d84045284f0824e4388e34c8096e0d"
+    },
+    "spin": {
+      "image": "80393e842c0f26012c7f7ca9668bf4db"
+    },
+    "boardBg": {
+      "image": "ff6279c14c71cfdfa6d5f08e0e556929"
+    },
+    "scoreBoard": {
+      "image": "c8e4e3371a8b0072378ffbeb98755d75"
+    },
+    "boardOption": {
+      "image": "8baac56e3a7b06cf835bef47e1710f2e"
+    },
+    "boardOption_disable": {
+      "image": "43a9bed98032e44b17b99c9463abf7f8"
+    },
+    "boardOption_light": {
+      "image": "d837b15457c76763bdaae52b5c761ccb"
+    },
+    "wheelOption": [
+      {
+        "sign": 6,
+        "optionA_disable": {
+          "image": "5a5920ecf8f41a7e8f2c329343eede1e"
+        },
+        "optionA": {
+          "image": "c73d191616fef85f81e0cc88917e63b4"
+        },
+        "optionA_light": {
+          "image": "4dea629c29e5e7e5202a8e77cc5a7c1b"
+        },
+        "optionB_disable": {
+          "image": "5ac3f999f360cb7ab482056d02aa9426"
+        },
+        "optionB": {
+          "image": "10c25203e455ddfe1849792e480b574f"
+        },
+        "optionB_light": {
+          "image": "3c741bef79cc14672a2f055547bc11a6"
+        },
+        "context": [
+          { "angle": 0, "text": "100" },
+          { "angle": 60, "text": "200" },
+          { "angle": 120, "text": "500" },
+          { "angle": 180, "text": "1000" },
+          { "angle": 240, "text": "x2" },
+          { "angle": 300, "text": "50" }
+        ]
+      },
+      {
+        "sign": 8,
+        "optionA_disable": {
+          "image": "b5c20d667b9f84852ae76cd15929fc5c"
+        },
+        "optionA": {
+          "image": "f2ab49c7be7cf9a251823ae47b7ba811"
+        },
+        "optionA_light": {
+          "image": "7cdbcd77b3adfa93daa8c14d30251536"
+        },
+        "optionB_disable": {
+          "image": "2ce7ea386f8e114dc27a5162cbb39cfb"
+        },
+        "optionB": {
+          "image": "af6617f06bf6033d5cdf35431a3b67ef"
+        },
+        "optionB_light": {
+          "image": "2b404515afe52c80e1236da4ee2c9ed5"
+        },
+        "context": [
+          { "angle": 0, "text": "1000" },
+          { "angle": 45, "text": "500" },
+          { "angle": 90, "text": "200" },
+          { "angle": 135, "text": "100" },
+          { "angle": 180, "text": "50" },
+          { "angle": 225, "text": "x2" },
+          { "angle": 270, "text": "100" },
+          { "angle": 315, "text": "200" }
+        ]
+      },
+      {
+        "sign": 10,
+        "optionA_disable": {
+          "image": "420e037bb36494196cb4410c6c7eb60c"
+        },
+        "optionA": {
+          "image": "9521588cf3d15b0488eeb4715127af07"
+        },
+        "optionA_light": {
+          "image": "34a2849dd8ee31ffc04d1b071cf930c3"
+        },
+        "optionB_disable": {
+          "image": "77fc1a0b6d1dbf08193e8bb7eb83e5da"
+        },
+        "optionB": {
+          "image": "1ecd70c9898b77d52022c0599ec669f5"
+        },
+        "optionB_light": {
+          "image": "0d64cfdf45838cef04a2463686c0ecc7"
+        },
+        "context": [
+          { "angle": 0, "text": "1000" },
+          { "angle": 36, "text": "500" },
+          { "angle": 72, "text": "200" },
+          { "angle": 108, "text": "100" },
+          { "angle": 144, "text": "x2" },
+          { "angle": 180, "text": "500" },
+          { "angle": 216, "text": "100" },
+          { "angle": 252, "text": "200" },
+          { "angle": 288, "text": "100" },
+          { "angle": 324, "text": "50" }
+        ]
+      }
+    ]
+  },
+  "localSound": {
+    "sound1": {
+      "sound": "a969f0807b392c91957416a31c98a5d6"
+    },
+    "selectCorrect": {
+      "sound": "e55494a2137fc05284dbe28e9c7b23e5"
+    },
+    "selectErr": {
+      "sound": "bf5512b77b0283e0da26dc2365188564"
+    },
+    "addScore": {
+      "sound": "c57a73c1d043bde93328c4a7a839bde6"
+    },
+    "clickClass": {
+      "sound": "cda634abe37fc6c46733170eddf67c32"
+    },
+    "rotate": {
+      "sound": "99271b6537b3e5967689e5267f3ab2ca"
+    },
+    "stop": {
+      "sound": "a7e6e912b2ebb0b970c743085eb1b32c"
+    }
+  },
+  "localPosition": {
+    "class": [
+      {"x": 241, "y": 338, "type": "A", "title": "Team A"},
+      {"x": 939, "y": 338, "type": "B", "title": "Team B"}
+    ],
+    "boardOption": [
+      {"x": 80, "y": 304},
+      {"x": 80, "y": 384},
+      {"x": 80, "y": 464},
+      {"x": 80, "y": 544}
+    ]
+  },
+  "pages": [
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    },
+    {
+      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "option": [
+        {
+          "text": "cheer him up1"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        },
+        {
+          "text": "cheer him up"
+        }
+      ]
+    }
+  ]
+}
