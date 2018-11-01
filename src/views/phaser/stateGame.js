@@ -1,6 +1,5 @@
 import vuePng from '@/assets/logo.png';
-import correct from '@/assets/sound/correct.mp3';
-import select from './select.mp3';
+//import correct from '../../../static/correct.mp3';
 
 import { BasePhaser } from '@/utils/phaser'
 class StateGame { 
@@ -10,12 +9,13 @@ class StateGame {
 
   preload() {
     this.game.load.image('sprite', vuePng)
-    this.game.load.audio('correct', [correct])
+    this.game.load.audio('correct', "http://4006688991.com:8080/media/8a/8acdfe001037861c206b1fac80cdff5b.ogg")
   }
 
   create() {
+    //console.log(correct);
     let correctSound = this.game.add.audio('correct');
-    console.log('correctSound',correctSound)
+    //console.log('correctSound',correctSound)
     this.vueImage = this.game.add.sprite(500, 400, 'sprite')
     this.vueImage.inputEnabled = true
     this.vueImage.input.enableDrag()

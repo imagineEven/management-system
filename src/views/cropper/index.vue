@@ -23,7 +23,7 @@
     <br>
     <br>
     <br>
-    <audio :src="Correct" controls="controls">
+    <audio src="../../../static/song.ogg" controls="controls">
       Your browser does not support the audio tag.
     </audio>
   </div>  
@@ -32,7 +32,7 @@
 
 <script>
 //../../../static/song.ogg
-import correct from '@/assets/sound/correct.mp3';
+import correct from '../../../static/song.ogg';
 import Cropper from "cropperjs";
 export default {
   data() {

@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css';// 加载进度条样式
 import { getLocalStorage } from '@/utils/local'; // 获取sessionId
 
 NProgress.configure({ showSpinner: false }); // 进度条初始化
-const whiteList = ['/login'];// 无需登录就可以访问的页面白名单
+const whiteList = ['/login', '/white/task'];// 无需登录就可以访问的页面白名单
 
 router.beforeEach((to, from, next) => {
   NProgress.start(); // 进度条开始拉动
@@ -33,6 +33,7 @@ router.beforeEach((to, from, next) => {
       } else {
         next();
       }
+      //next();
     }
   } else {
     if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
