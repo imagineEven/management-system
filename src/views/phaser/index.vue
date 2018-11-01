@@ -12,8 +12,7 @@
   export default {
     data() {
       return {
-        game: null,
-        stateGame: ''
+        game: null
       }
     },
     mixins: [ phaserFrameWork ],

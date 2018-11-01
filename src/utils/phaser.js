@@ -1,5 +1,4 @@
 import vuePng from '@/assets/logo.png';
-import { StateGame } from '@/views/phaser/stateGame.js';
 
 class BasePhaser{
   constructor(view) {

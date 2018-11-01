@@ -1,8 +1,8 @@
 import vuePng from '@/assets/logo.png';
 import correct from '../../../static/sound/correct.mp3';
-
 import { BasePhaser } from '@/utils/phaser'
-class StateGame { 
+
+class SpinTheWheel { 
   constructor(game) {
     this.game = game;
   }
@@ -54,5 +54,5 @@ class StateGame {
 }
 
 export {
-  StateGame
+  SpinTheWheel
 }
