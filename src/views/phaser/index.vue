@@ -37,6 +37,10 @@
   #gameScreen {
     margin: 0 auto;
     height: 95vh;
+    background: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #gameScreen canvas {

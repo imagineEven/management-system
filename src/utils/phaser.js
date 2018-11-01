@@ -2,7 +2,7 @@ import vuePng from '@/assets/logo.png';
 
 class BasePhaser{
   constructor(view) {
-      this.game = new Phaser.Game('100', '100', Phaser.CANVAS, view)
+      this.game = new Phaser.Game(1180, 708, Phaser.CANVAS, view)
   }
 
   allMethods() {
