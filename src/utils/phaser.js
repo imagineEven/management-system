@@ -1,4 +1,3 @@
-import vuePng from '@/assets/logo.png';
 
 class BasePhaser{
   constructor(view) {
@@ -10,7 +9,10 @@ class BasePhaser{
   }
 
   createSprite(myself, x, y, boj) {
-    return myself.add.sprite(x, y, boj)
+    //debugger
+    console.log(myself)
+    //debugger
+    return this.add.sprite(x, y, boj)
   }
 }
 

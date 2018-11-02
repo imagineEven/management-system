@@ -1,20 +1,18 @@
 import vuePng from '@/assets/logo.png';
-import { BasePhaser } from '@/utils/phaser'
 class OtherGame { 
-  constructor(game) {
-    this.game = game
+  constructor() {
+
   }
 
   preload() {
-    this.game.load.image('sprite', vuePng)
+    this.load.image('sprite', vuePng)
   }
 
   create() {
-    this.vueImage = this.game.add.sprite(100, 100, 'sprite')
+    this.vueImage = this.add.sprite(100, 100, 'sprite')
     this.vueImage.inputEnabled = true
     this.vueImage.input.enableDrag()
     this.vueImage.events.onInputUp.add(() => {
-      console.log('图片被点击了')
       this.vueImage.inputEnabled = false
       this.rotateStart();
     })
@@ -41,7 +39,7 @@ class OtherGame {
 
   rotateMethod(pahser, ratateAngle, time ) {
     return new Promise((resolve, reject) => {
-      this.game.add.tween(pahser).to( { angle: ratateAngle }, time, 'Linear', true).onComplete.add(() => {
+      this.add.tween(pahser).to( { angle: ratateAngle }, time, 'Linear', true).onComplete.add(() => {
         resolve();
       })
     })
