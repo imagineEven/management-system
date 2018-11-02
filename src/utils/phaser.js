@@ -8,10 +8,7 @@ class BasePhaser{
     this.game.createSprite = this.createSprite;
   }
 
-  createSprite(myself, x, y, boj) {
-    //debugger
-    console.log(myself)
-    //debugger
+  createSprite(x, y, boj) {
     return this.add.sprite(x, y, boj)
   }
 }

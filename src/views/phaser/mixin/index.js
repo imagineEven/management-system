@@ -18,7 +18,7 @@ export default {
     },
     toggleState() {
       this.game.state.clearCurrentState()
-      this.otherGame = new OtherGame();
+      this.otherGame = new OtherGame(this.game);
       this.game.state.add('otherGame', this.otherGame)
       this.game.state.start('otherGame')
     },

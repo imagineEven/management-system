@@ -9,16 +9,16 @@ import data from './static-resource.json'
 
 class SpinTheWheel { 
   constructor(game) {
-    this.game = game;
     this.data = data;
+    this.game = game;
   }
 
   preload() {
-    this.game.load.image('bg', bg)
-    this.game.load.image('img_base', img_base)
-    this.game.load.image('img_wheel', img_wheel)
-    this.game.load.image('img_team_normal', img_team_normal)
-    this.game.load.image('img_team_selected', img_team_selected)
+    this.load.image('bg', bg)
+    this.load.image('img_base', img_base)
+    this.load.image('img_wheel', img_wheel)
+    this.load.image('img_team_normal', img_team_normal)
+    this.load.image('img_team_selected', img_team_selected)
   }
 
   create() {
@@ -26,13 +26,13 @@ class SpinTheWheel {
   }
   
   createUI() {
-    this.bg = this.game.add.sprite(0, 0, 'bg')
-    this.img_base = this.game.createSprite(this, 590, 575, 'img_base');
+    this.bg = this.add.sprite(0, 0, 'bg')
+    this.img_base = this.game.createSprite(590, 575, 'img_base');
     this.img_base.anchor.set(0.5);
-    this.wheel = this.game.createSprite(this, 590, 348, "img_wheel");
+    this.wheel = this.game.createSprite(590, 348, "img_wheel");
     this.wheel.anchor.set(0.5);
 
-    let graphicsCircle = this.game.add.graphics(0, 0);
+    let graphicsCircle = this.add.graphics(0, 0);
     graphicsCircle.beginFill(0x000000, 0.4);
     this.circle = graphicsCircle.drawCircle(0, 0, 376);
     this.wheel.addChild(this.circle);
@@ -51,18 +51,18 @@ class SpinTheWheel {
 
     console.log(this.data.localPosition.class)
     this.data.localPosition.class.forEach((item, index) => {
-      let classGroup = this.game.createSprite(this, item.x, item.y, "img_team_normal")
+      let classGroup = this.game.createSprite(item.x, item.y, "img_team_normal")
       classGroup.anchor.set(0.5);
       classGroup.normal = "img_team_normal"; 
       classGroup.select = "img_team_selected";
 
-      let classTitle = this.game.add.text(0, -50, item.title, style);
+      let classTitle = this.add.text(0, -50, item.title, style);
       classTitle.anchor.set(0.5)
       classTitle.type = item.type;
       classGroup.addChild(classTitle);
       this.classGroupArr.push(classGroup);
 
-      let numberSprite = this.game.add.text(0, 0, '0', {
+      let numberSprite = this.add.text(0, 0, '0', {
         font: 'Century Gothic',
         fontSize: 30 + 'px',
         fill: '#723708',

@@ -1,7 +1,7 @@
 import vuePng from '@/assets/logo.png';
 class OtherGame { 
-  constructor() {
-
+  constructor(game) {
+    this.game =game
   }
 
   preload() {
