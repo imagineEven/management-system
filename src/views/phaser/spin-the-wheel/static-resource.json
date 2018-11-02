@@ -43,22 +43,22 @@
       {
         "sign": 6,
         "optionA_disable": {
-          "image": "5a5920ecf8f41a7e8f2c329343eede1e"
+          "image": "six_yellow_disable"
         },
         "optionA": {
-          "image": "c73d191616fef85f81e0cc88917e63b4"
+          "image": "six_yellow"
         },
         "optionA_light": {
-          "image": "4dea629c29e5e7e5202a8e77cc5a7c1b"
+          "image": "six_yellow_light"
         },
         "optionB_disable": {
-          "image": "5ac3f999f360cb7ab482056d02aa9426"
+          "image": "six_deepYellow_disable"
         },
         "optionB": {
-          "image": "10c25203e455ddfe1849792e480b574f"
+          "image": "six_deepYellow"
         },
         "optionB_light": {
-          "image": "3c741bef79cc14672a2f055547bc11a6"
+          "image": "six_deepYellow_light"
         },
         "context": [
           { "angle": 0, "text": "100" },
@@ -171,40 +171,6 @@
     ]
   },
   "pages": [
-    {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
-      "option": [
-        {
-          "text": "cheer him up1"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        }
-      ]
-    },
-    {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
-      "option": [
-        {
-          "text": "cheer him up1"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        }
-      ]
-    },
     {
       "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
       "option": [
