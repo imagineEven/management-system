@@ -33,9 +33,10 @@ class BasePhaser{
     });
   }
 
-  playSoundPromiseByObject(sound) {
+  playSoundPromiseByObject(sound, volume = 1) {
     let music = this.add.audio(sound);
-    music.play();
+    music.play("", 0, volume);
+    //music.volume = 0.1;
     this.currentSounds.forEach((item, i) => {
       item.onStop.removeAll();
       item.stop();

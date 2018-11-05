@@ -7,10 +7,13 @@ import img_team_selected from '@/assets/spin-the-wheel/img_team_selected.png';
 import img_spin from '@/assets/spin-the-wheel/img_spin.png';
 import img_spin_disable from '@/assets/spin-the-wheel/img_spin_disable.png';
 import img_bg from '@/assets/spin-the-wheel/img_bg.png';
+import img_delete_bg from '@/assets/spin-the-wheel/img_delete_bg.png';
 import img_score from '@/assets/spin-the-wheel/img_score.png';
 import img_answer from '@/assets/spin-the-wheel/img_answer.png';
 import img_answer_right from '@/assets/spin-the-wheel/img_answer_right.png';
 import img_answer_wrong from '@/assets/spin-the-wheel/img_answer_wrong.png';
+import img_question from '@/assets/spin-the-wheel/img_question.png';
+import fanzao from '@/assets/spin-the-wheel/fanzao.png';
 
 import six_deepYellow_disable from '@/assets/spin-the-wheel/six/six_deepYellow_disable.png';
 import six_deepYellow_light from '@/assets/spin-the-wheel/six/six_deepYellow_light.png';
@@ -19,10 +22,12 @@ import six_yellow_disable from '@/assets/spin-the-wheel/six/six_yellow_disable.p
 import six_yellow_light from '@/assets/spin-the-wheel/six/six_yellow_light.png';
 import six_yellow from '@/assets/spin-the-wheel/six/six_yellow.png';
 
-
 import song from '../../../../static/sound/spin-the-wheel/song.ogg'
 import rotate_stop from '../../../../static/sound/spin-the-wheel/rotate_stop.mp3'
 import rotate from '../../../../static/sound/spin-the-wheel/rotate.mp3'
+import selectCorrect from '../../../../static/sound/spin-the-wheel/selectCorrect.mp3'
+import selectErr from '../../../../static/sound/spin-the-wheel/selectErr.mp3'
+import addScore from '../../../../static/sound/spin-the-wheel/addScore.mp3'
 
 import { BasePhaser } from '@/utils/phaser'
 import data from './static-resource.json'
@@ -48,6 +53,9 @@ class SpinTheWheel {
     this.load.image('boardOption', img_answer)
     this.load.image('boardOption_light', img_answer_right)
     this.load.image('boardOption_disable', img_answer_wrong)
+    this.load.image('img_question', img_question)
+    this.load.image('img_delete_bg', img_delete_bg)
+    this.load.image('fanzao', fanzao)
     
     this.load.image('six_yellow', six_yellow)
     this.load.image('six_yellow_light', six_yellow_light)
@@ -61,6 +69,9 @@ class SpinTheWheel {
     this.load.audio('song', song)
     this.load.audio('rotate', rotate)
     this.load.audio('rotate_stop', rotate_stop)
+    this.load.audio('selectCorrect', selectCorrect)
+    this.load.audio('selectErr', selectErr)
+    this.load.audio('addScore', addScore)
   }
 
   create() {
@@ -88,10 +99,6 @@ class SpinTheWheel {
     this.createSpin();
     this.createOptions();
 
-    let graphics = this.add.graphics(0, 0)
-    graphics.beginFill(0x000000, 0.4);
-    this.bgShadow = graphics.drawRect(0, 0, 1180, 708);
-    this.bgShadow.visible = false;
   }
 
 
@@ -104,7 +111,6 @@ class SpinTheWheel {
     }
     this.classGroupArr = [];
 
-    console.log(this.data.localPosition.class)
     this.data.localPosition.class.forEach((item, index) => {
       let classGroup = this.game.createSprite(item.x, item.y, "img_team_normal")
       classGroup.anchor.set(0.5);
@@ -145,7 +151,6 @@ class SpinTheWheel {
 
   createOptions() {
     let optionDetail = this.getOptionDetail();
-    //debugger
     let optionPositonArr = optionDetail.context;
     this.optionSpriteArr = [];
 
@@ -172,7 +177,6 @@ class SpinTheWheel {
         optionSprite.addChild(optionSprite.disable)
         optionSprite.addChild(optionSprite.light)
       }
-      //optionSprite.Flasher = new TextureFlasher(this, optionSprite, [optionSprite.normal, optionSprite.light], { duration: 200, times: 0 });
       optionSprite.anchor.set(0.5, 1)
       optionSprite.angle =  - position.angle;
       optionSprite.rotateAngle = position.angle;
@@ -233,7 +237,7 @@ class SpinTheWheel {
     this.game.setObjectArrayClicked(this.classGroupArr, false);
     this.angleSprite = this.startRandom()
     this.angleSprite.rotateAngle === 0 ? this.angleSprite.rotateAngle = 360 : undefined;
-    this.game.playSoundPromiseByObject('rotate')
+    this.game.playSoundPromiseByObject('rotate', 0.2)
     this.rotateMethod(this.circle, 360, 1000).then(() => {
       return this.rotateMethod(this.circle, this.angleSprite.rotateAngle, this.angleSprite.rotateAngle*8)
     }).then(() => {
@@ -242,15 +246,11 @@ class SpinTheWheel {
      this.flasherSprite(this.angleSprite)
       return this.game.waitByPromise(1200)
     }).then(() => {
-      //debugger
       this.scrollAnswerContent()
     })
   }
 
   scrollAnswerContent() {
-    this.bgShadow.visible = true;
-    console.log(this.newPages);
-    //debugger
     let newPage = this.newPages[0]
     this.answerContent = new AnswerContent(this, newPage, this.classSprite);
   }
@@ -285,8 +285,90 @@ class SpinTheWheel {
     })
   }
 
-  update() {
+  answerRight() {
+    this.remove(this.angleSprite);
+    this.newPages.splice(0, 1);
+    this.angleSprite.text.alpha = 0.2;
+    this.angleSprite.disable.alpha = 1;
 
+    this.stateSpinClick(false);
+    this.addScore()
+    this.stateClassNormal();
+    this.angleSprite = '';
+  }
+
+  addScore() {
+    let selectScore = this.angleSprite.title
+    this.createTipsScore(selectScore)
+  }
+
+  createTipsScore(selectScore) {
+    let style = {
+      font: 'Century Gothic',
+      fontSize: '20px',
+      fill: '#723708',
+      fontWeight: 600
+    }
+    selectScore === 'x2' ? undefined :  selectScore = '+' + selectScore;
+    let tipsScore = this.add.text(20, 0, selectScore, style);
+    tipsScore.anchor.set(0.5);
+    tipsScore.alpha = 0;
+    this.classSprite.addChild(tipsScore);
+    this.game.playSoundPromiseByObject("addScore")
+    this.game.waitByPromise(800).then(() => {
+      this.createNewScore(selectScore);
+    })
+    this.add.tween(tipsScore).to( { alpha: 1, y: -30 }, 1000, 'Linear', true).onComplete.add(() => {
+      tipsScore.destroy();
+    })
+  }
+
+  createNewScore(selectScore) {
+    let style = {
+      font: 'Century Gothic',
+      fontSize: "30px",
+      fill: '#723708',
+      fontWeight: 400
+    }
+    let originScore = this.classSprite.number;
+    let realScore = ''
+    if (selectScore === 'x2') {
+      realScore = Number(originScore)*2 + ''
+    } else {
+      realScore = Number(originScore) + Number(selectScore) + ''
+    }
+    this.classSprite.numberSprite.destroy();
+    this.classSprite.numberSprite = this.add.text(0, 0, realScore, style);
+    this.classSprite.numberSprite.anchor.set(0.5)
+    this.classSprite.addChild(this.classSprite.numberSprite);
+    this.classSprite.number = realScore;
+    if (this.newPages.length > 0) {
+      this.game.setObjectArrayClicked(this.classGroupArr, true);
+    }
+  }
+
+  answerErr() {
+    this.stateSpinClick(false);
+    this.stateClassNormal();
+    this.game.setObjectArrayClicked(this.classGroupArr, true);
+    this.angleSprite = '';
+    this.classSprite = '';
+  }
+
+  remove(value) {
+    let index = this.angleArr.indexOf(value);
+    if (index > -1) {
+      this.angleArr.splice(index, 1);
+    }
+  }
+
+  update() {
+    if (this.answerContent && this.answerContent.text && this.answerContent.text.height > 150) {
+      this.answerContent.text.y > (this.answerContent.text.height - 150)/2 ? this.answerContent.text.y = (this.answerContent.text.height - 150)/2 : undefined;
+      if (this.answerContent.text.y < 0) {
+        Math.abs(this.answerContent.text.y) > (this.answerContent.text.height - 150)/2 ? this.answerContent.text.y = -(this.answerContent.text.height - 150)/2 : undefined;
+      }
+    }
   }
 }
 

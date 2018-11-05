@@ -164,112 +164,87 @@
       {"x": 939, "y": 338, "type": "B", "title": "Team B"}
     ],
     "boardOption": [
-      {"x": 80, "y": 304},
-      {"x": 80, "y": 384},
-      {"x": 80, "y": 464},
-      {"x": 80, "y": 544}
+      [
+        {"x": 80, "y": 304},
+        {"x": 80, "y": 384},
+        {"x": 80, "y": 464},
+        {"x": 80, "y": 544}
+      ],
+      [
+        {"x": 80, "y": 384},
+        {"x": 80, "y": 464}
+      ],
+      [
+        {"x": 80, "y": 344},
+        {"x": 80, "y": 424},
+        {"x": 80, "y": 504}
+      ]
     ]
   },
   "pages": [
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "你是猪吗？",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "不是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "是"
         }
       ]
     },
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "你是驴吗？",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "不是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "是"
         }
       ]
     },
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "你是狗吗？",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "不是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "是"
         }
       ]
     },
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "你是鸡吗？",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "不是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "是"
         }
       ]
     },
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "从前有一个人",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "不是"
         }
       ]
     },
     {
-      "title": "1madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile madan wangjile",
+      "title": "你是人吗？",
       "option": [
         {
-          "text": "cheer him up1"
+          "text": "是"
         },
         {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
-        },
-        {
-          "text": "cheer him up"
+          "text": "不是"
         }
       ]
     }
