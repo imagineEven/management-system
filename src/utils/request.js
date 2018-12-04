@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Message, MessageBox } from 'element-ui';
 import store from '../store';
-import { getLocalStorage } from './local.js'
+import { getLocalStorage } from './local.js';
 /* import { getToken } from '@/utils/auth' 001START*/
 
 // 创建axios实例

@@ -12,6 +12,8 @@ export default {
   },
   methods: {
     clickBack() {
+      this.game.playSoundPromiseByObject("")
+      //this.game.state.clearCurrentState()
       this.$router.push({
         path: '/'
       })

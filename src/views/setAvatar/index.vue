@@ -35,6 +35,8 @@ export default {
     },
 
     fetchImage(event) {
+      console.log(event);
+      debugger
       const fileList = event.target.files;
       if (fileList.length === 0) return;
       const files = fileList;

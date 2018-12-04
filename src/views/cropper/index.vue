@@ -41,7 +41,7 @@ export default {
       picValue: "",
       cropper: "",
       croppable: false,
-      Correct: "correct",
+      Correct: correct,
       panel: false,
       url: "",
       imgCropperData: {
