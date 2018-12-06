@@ -109,7 +109,7 @@ export const asyncRouterMap = [
         name: '设置头像',
         component: () => import('@/views/setAvatar/index'),
         meta: {
-          title: '设置头像',
+          title: '上传头像视频',
           icon: 'tree',
           roles: ['even']
         }
@@ -130,6 +130,16 @@ export const asyncRouterMap = [
         component: () => import('@/views/compress/index'),
         meta: {
           title: '压缩图片',
+          icon: 'tree',
+          roles: ['even']
+        }
+      },
+      {
+        path: 'fileReader',
+        name: '读取视频',
+        component: () => import('@/views/fileReader/index'),
+        meta: {
+          title: '读取视频',
           icon: 'tree',
           roles: ['even']
         }

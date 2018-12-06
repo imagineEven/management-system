@@ -1,7 +1,7 @@
 <template>
   <div class="compress_wraper">
 
-    <img :src="base64str ? 'data:image/png;base64,'+base64str: 'https://www.gravatar.com/avatar/default?s=200&r=pg&d=mm'"  class="rounded-circle" />
+    <img :src="base64str ? 'data:image/png;base64,'+base64str: 'https://www.gravatar.com/avatar/default?s=200&r=pg&d=mm'" class="rounded-circle" />
     <br>
     <br>
     <div class="file-box">
@@ -10,9 +10,11 @@
     </div>
     <br>
     <br>
-    <br>
+      <input type="file" @change="fetchVideo" accept="video/*">
     <br>
     <button @click="clickUpload"> sure? </button>
+    <br>
+    <video v-show="videoSrc" controls :src="videoSrc" class="video_content"></video>
   </div>
 </template>
 
@@ -24,7 +26,8 @@ export default {
     return {
       base64str: '',
       file: '',
-      url: ''
+      url: '',
+      videoSrc: ''
     }
   },
   methods: {
@@ -33,25 +36,29 @@ export default {
         console.log(res)
       })
     },
-
+    fetchVideo(event) {
+      const fileList = event.target.files;
+      let url = URL.createObjectURL(fileList[0]);
+      this.videoSrc = url;
+    },
     fetchImage(event) {
-      console.log(event);
-      debugger
       const fileList = event.target.files;
       if (fileList.length === 0) return;
-      const files = fileList;
-      const file = files[0];
-      this.file = file;
-      let compress = compressFile(file, { quality: 0.8 }).then((data) => {
-        this.base64str = data.base64str;
-        this.file = data.fileBlob;
-      })
+      const reader = new FileReader();
+      reader.readAsDataURL(fileList[0]);
+      reader.onload=(e) =>{
+        this.base64str = e.target.result.split(',')[1];
+      }
     }
   }
 }  
 </script>
 
 <style>
+.video_content {
+  height: 200px;
+  width: 200px;
+}
 .rounded-circle {
   width: 200px;
   height: 200px;
