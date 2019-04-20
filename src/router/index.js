@@ -143,6 +143,16 @@ export const asyncRouterMap = [
           icon: 'tree',
           roles: ['even']
         }
+      },
+      {
+        path: 'stylePage',
+        name: '内联样式',
+        component: () => import('@/views/stylePage/index'),
+        meta: {
+          title: '内联样式',
+          icon: 'tree',
+          roles: ['even']
+        }
       }
     ]
   },

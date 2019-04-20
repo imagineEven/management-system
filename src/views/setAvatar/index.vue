@@ -1,12 +1,11 @@
 <template>
   <div class="compress_wraper">
-
     <img :src="base64str ? 'data:image/png;base64,'+base64str: 'https://www.gravatar.com/avatar/default?s=200&r=pg&d=mm'" class="rounded-circle" />
     <br>
     <br>
     <div class="file-box">
       <input type="file" @change="fetchImage" ref="file" accept="image/*" value="nihao" class="file-btn"/>
-      更换头像
+      更换头像(快快)
     </div>
     <br>
     <br>
@@ -17,7 +16,6 @@
     <video v-show="videoSrc" controls :src="videoSrc" class="video_content"></video>
   </div>
 </template>
-
 <script>
 import { compressFile } from '@/utils/img';
 import api from '@/api/index';
