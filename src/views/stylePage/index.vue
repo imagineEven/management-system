@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div>{{msg}}</div>
   <!-- 变量 对象 数组 只是用来定义类名的；-->
   <!-- 支持字符串 -->
   <div :class="'activeZero'"></div>
@@ -19,6 +20,7 @@
 </div>
 </template>
 <script>
+import {Bus} from '../bus.js'
 export default {
   data() {
     return {
@@ -32,8 +34,16 @@ export default {
         height: '100px',
         width: '100px',
         background: 'green'
-      }
+      },
+      msg: '我'
     }
+  },
+  created() {
+    Bus.$on('setMsg', content => { 
+      // console.log('')
+      debugger;
+      this.msg = content;
+    });
   }
 }
 </script>

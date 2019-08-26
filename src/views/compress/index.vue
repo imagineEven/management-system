@@ -1,6 +1,6 @@
 <template>
   <div class="compress_wraper">
-    <h1>使用compress插件压缩图片</h1>
+    <h1 @click="clickThis">在这个页面进行模拟emit</h1>
     <br>
     <br>
     <input type="file" @change="fetchImage" ref="file" accept="image/*">
@@ -20,6 +20,7 @@
 <script>
 import { compressFile } from '@/utils/img';
 import api from '@/api/index';
+import { Bus } from '../bus.js'
 export default {
   data() {
     return {
@@ -36,7 +37,12 @@ export default {
         console.log(res)
       })
     },
-
+    clickThis() {
+      console.log(111,Bus);
+      console.log(2,Bus.$on)
+      console.log(2,Bus.$emit)
+      Bus.$emit('setMsg', 'Hi Vue!');
+    },
     fetchImage(event) {
       const fileList = event.target.files;
       if (fileList.length === 0) return;
